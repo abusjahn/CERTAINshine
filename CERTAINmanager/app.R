@@ -19,15 +19,16 @@ options(shiny.maxRequestSize = 100 * 1024^2)
 ui <- dashboardPage(
   header = dashboardHeader(
     title="CERTAIN Export Manager",
-    titleWidth = 400),
+    titleWidth = 6),
   
   sidebar = dashboardSidebar(disable = T,
                              minified = F),
   
   body = dashboardBody(
     theme=shinyDashboardThemes('blue_gradient'),
-    tags$style(type="text/css", ".content-wrapper {background-color: #e8ecec}"),    # fluidRow(
-    tabItem(
+    # tags$style(type="text/css", ".content-wrapper {background-color: #e8ecec}"),    # fluidRow(
+ fluidRow(
+       tabItem(
       # tabBox(
       #   width=12,
       #   height="800px",
@@ -76,10 +77,18 @@ ui <- dashboardPage(
       )#, width=9
     )
   ),
+ fluidRow(
+   infoBox(title = 'file',
+           value = 'unknown',
+           width=5,
+           icon = icon(class="duotone", name="file-excel")
+   )
+ ),
+ 
   controlbar = dashboardControlbar(collapsed = TRUE, skinSelector()),
   skin='midnight'
 )
-
+)
 # )
 # tags$head(tags$style(HTML('.main-header {background-color: #FF00FF;}')))
 
